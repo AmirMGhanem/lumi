@@ -1,9 +1,13 @@
 import typing
 from nanoid import generate
 import json
+from lumi.middleware import ServeStatic
 from lumi.server import DevelopmentServer
 from lumi.enums import RequestMethod
 import multiprocessing
+from pathlib import Path
+
+
 
 class Lumi:
     instance = None
@@ -26,6 +30,7 @@ class Lumi:
         Function metadata will have functionKey .
         With the functionKey we can get the function from the registered_functions dictionary
         '''
+
 
     def register(self, function, route:str=None, request_method=RequestMethod.POST)->None:
         functionKey = generate(size=10)
@@ -181,5 +186,15 @@ class Lumi:
         start_response(status_text, [('Content-Type', 'application/json')])
         return iter([json.dumps(response).encode()])
 
+    @staticmethod
+    def use(servestatic:ServeStatic):
+        file_name="test.jpeg"
+        path=Path(ServeStatic).joinpath(file_name).resolve().relative_to(ServeStatic.resolve())
+        return path
+
+
+
     def __call__(self, environ:dict, start_response: typing.Callable) -> typing.Any:
         return self.wsgi_app(environ, start_response)
+
+
