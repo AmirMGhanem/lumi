@@ -192,8 +192,8 @@ Contributions are always welcome!
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/Tanmoy741127">
-            <img src="https://avatars.githubusercontent.com/u/57363826?v=4" width="100;" alt="Tanmoy741127"/>
+        <a href="https://github.com/tanmoysrt">
+            <img src="https://avatars.githubusercontent.com/u/57363826?v=4" width="100;" alt="tanmoysrt"/>
             <br />
             <sub><b>Tanmoy Sarkar</b></sub>
         </a>
